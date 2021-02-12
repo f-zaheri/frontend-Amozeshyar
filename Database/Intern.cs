@@ -13,5 +13,8 @@ namespace Amozeshyar.Database
         public ICollection<PreRegisteration> PreRegisterations { get; set; }
         public ICollection<FinancialTransaction> FinancialTransactions { get; set; }
         public ICollection<Register> Registers { get; set; }
+        public byte[] Salt { get; set; }
+
+        public string Role {get {return "Intern";}}
     }
 }

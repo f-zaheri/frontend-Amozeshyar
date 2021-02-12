@@ -1,0 +1,34 @@
+<div class="main">
+    <mat-card>
+        <mat-card-title class="title">ثبت نام</mat-card-title>
+        <mat-form-field class="right" appearance="fill">
+            <mat-label>نام</mat-label>
+            <input matInput [(ngModel)]="registerRequest.firstname" >
+          </mat-form-field>
+          <mat-form-field class="right" appearance="fill">
+            <mat-label>نام خانوادگی</mat-label>
+            <input matInput [(ngModel)]="registerRequest.lastname" >
+          </mat-form-field>
+        <mat-form-field class="right" appearance="fill">
+            <mat-label>شماره تلفن همراه</mat-label>
+            <input matInput [(ngModel)]="registerRequest.mobile" >
+          </mat-form-field>
+          <mat-form-field class="right" appearance="fill">
+            <mat-label>کلمه عبور</mat-label>
+            <input type="password" matInput [(ngModel)]="registerRequest.password">
+          </mat-form-field>
+          <mat-form-field class="right" appearance="fill">
+            <mat-label>تکرار کلمه عبور</mat-label>
+            <input type="password" matInput [(ngModel)]="confirmPassword">
+          </mat-form-field>
+          <section>
+            <div class="example-button-row">
+              <button (click)="register()" [disabled]="!isValid()" mat-raised-button color="primary">ثبت نام</button>
+              <a mat-raised-button color="primary" [routerLink]="['/login']" >بازگشت</a>
+            </div>
+          </section>
+        </mat-card>
+        <div *ngIf="registerResponse && registerResponse.Message!=''">{{registerResponse.Message}}</div>
+</div>
+
+

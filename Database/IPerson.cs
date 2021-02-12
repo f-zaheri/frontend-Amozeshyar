@@ -7,6 +7,8 @@ namespace Amozeshyar.Database
         string Gender { get; set; }
         string Mobile { get; set; }
         string Address { get; set; }
-        public string Password { get; set; }  
+        string Password { get; set; }  
+        byte[] Salt { get; set; }
+        string Role { get; }
     }
 }

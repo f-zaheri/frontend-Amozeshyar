@@ -17,7 +17,7 @@ namespace Amozeshyar.Migrations
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.0");
+                .HasAnnotation("ProductVersion", "5.0.1");
 
             modelBuilder.Entity("Amozeshyar.Database.Course", b =>
                 {
@@ -137,12 +137,19 @@ namespace Amozeshyar.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Mobile")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("Salt")
+                        .HasColumnType("varbinary(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("Mobile")
+                        .IsUnique()
+                        .HasFilter("[Mobile] IS NOT NULL");
 
                     b.ToTable("Interns");
                 });
@@ -174,6 +181,9 @@ namespace Amozeshyar.Migrations
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Salt")
+                        .HasColumnType("varbinary(max)");
 
                     b.HasKey("Id");
 
@@ -234,12 +244,19 @@ namespace Amozeshyar.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Mobile")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("Salt")
+                        .HasColumnType("varbinary(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("Mobile")
+                        .IsUnique()
+                        .HasFilter("[Mobile] IS NOT NULL");
 
                     b.ToTable("Professors");
                 });

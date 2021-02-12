@@ -1,0 +1,28 @@
+<div class="main">
+    <mat-card>
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+        </mat-card-header>
+        <mat-card-title class="title">ورود به سامانه</mat-card-title>
+        <mat-form-field class="right" appearance="fill">
+            <mat-label>شماره تلفن همراه</mat-label>
+            <input matInput [(ngModel)]="loginRequest.mobile" >
+          </mat-form-field>
+          <mat-form-field class="right" appearance="fill">
+            <mat-label>کلمه عبور</mat-label>
+            <input type="password" matInput [(ngModel)]="loginRequest.password">
+          </mat-form-field>
+          <section class="example-section">
+            <mat-checkbox class="example-margin">مرا بخاطر بسپار</mat-checkbox>
+          </section>
+<section>
+  <div class="example-button-row">
+    <button mat-raised-button color="primary" (click)="login()">ورود</button>
+    <a mat-raised-button color="primary" [routerLink]="['/register']" >ثبت نام</a>
+    <a mat-raised-button color="primary" [routerLink]="['/register']" >فراموشی کلمه عبور</a>
+  </div>
+</section>
+    </mat-card>
+    <div *ngIf="loginResponse && loginResponse.IsAthenticated==false">{{loginResponse.Message}}</div>
+</div>
+

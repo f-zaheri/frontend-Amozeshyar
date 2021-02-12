@@ -1,3 +1,6 @@
-export class LoginRequest{
+export class LoginRequest
+{
+    mobile : string;
+    password : string;
     
 }

@@ -17,5 +17,15 @@ namespace Amozeshyar.Database
         {
             
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Intern>()
+            .HasIndex(m=>m.Mobile)
+            .IsUnique(true);
+            modelBuilder.Entity<Professor>()
+            .HasIndex(m=>m.Mobile)
+            .IsUnique(true);
+        }
     }
 }

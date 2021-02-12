@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Amozeshyar.Database;
+using Amozeshyar.Models.Requests;
+using System.Security.Cryptography;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Amozeshyar.Models.Responses;
 
 namespace Amozeshyar.Controllers
 {
@@ -75,12 +79,49 @@ namespace Amozeshyar.Controllers
         // POST: api/Interns
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Intern>> PostIntern(Intern intern)
+        public async Task<ActionResult<Intern>> PostIntern(RegisterRequest registerRequest)
         {
+            byte[] salt = new byte[128 / 8];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(salt);
+            }
+ 
+            // derive a 256-bit subkey (use HMACSHA1 with 10,000 iterations)
+            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                password: registerRequest.Password,
+                salt: salt,
+                prf: KeyDerivationPrf.HMACSHA1,
+                iterationCount: 10000,
+                numBytesRequested: 256 / 8));
+            var intern=new Intern
+            {
+                Address="",
+                Firstname=registerRequest.Firstname,
+                Lastname=registerRequest.Lastname,
+                Mobile=registerRequest.Mobile,
+                Password=hashed,
+                Salt=salt
+            };
+            try
+            {
             _context.Interns.Add(intern);
             await _context.SaveChangesAsync();
+            }
+            catch
+            {
+                return Ok(new RegisterResponse
+            {
+                IsSuccess=false,
+                Message="شماره تلفن وارد شده تکراری است"
+            });
+            }
 
-            return CreatedAtAction("GetIntern", new { id = intern.Id }, intern);
+            return Ok(new RegisterResponse
+            {
+                IsSuccess=true,
+                Message="با موفقیت ثبت شد"
+            });
         }
 
         // DELETE: api/Interns/5

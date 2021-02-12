@@ -1,0 +1,29 @@
+.main{
+    margin: 5% auto auto auto;
+    width: 27%;
+    background-color: rgba(248, 248, 248, 0.952);
+    height: auto;
+    border: 1px gray;
+    padding: 10px;
+    box-shadow: 5px 5px 8px rgb(209, 209, 209), 10px 10px 8px rgb(196, 196, 196), 15px 15px 8px rgb(241, 241, 241);
+}
+.example-header-image {
+    background-image: url('../../assets/login1.png');
+    background-size: cover;
+    margin: 0 45% 0 0;
+  }
+  .title{
+      text-align: center;
+      padding: 2% 5% 10% 0;
+      color: rgba(110, 35, 180, 0.719)
+  }
+  .right{
+      text-align: right;
+      min-width: 100%;
+  }
+.example-margin{
+    margin-bottom: 15% ;
+}
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }

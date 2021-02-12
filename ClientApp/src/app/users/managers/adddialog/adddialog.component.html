@@ -1,0 +1,46 @@
+<div class="d1">
+مشخصات استاد
+<mat-form-field class="right">
+  <mat-label>نام</mat-label>
+  <input [(ngModel)]="current.firstname" matInput type="text">
+</mat-form-field>
+<mat-form-field class="right" >
+  <mat-label>نام خانوادگی</mat-label>
+  <input matInput type="text">
+</mat-form-field>
+<mat-form-field class="right">
+  <mat-label>تخصص</mat-label>
+  <input matInput type="text">
+</mat-form-field>
+<mat-form-field  class="right">
+  <mat-label>شماره همراه</mat-label>
+  <input matInput type="text">
+</mat-form-field>
+<mat-form-field class="right" >
+  <mat-label>کلمه عبور</mat-label>
+  <input matInput type="text">
+</mat-form-field>
+<mat-form-field class="right" >
+  <mat-label>تکرار کلمه عبور</mat-label>
+  <input matInput type="text">
+</mat-form-field>
+<mat-form-field appearance="fill" class="right">
+  <mat-label>جنسیت</mat-label>
+  <mat-select>
+    <mat-option value="1">مرد</mat-option>
+    <mat-option value="2">زن</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field class="right">
+  <mat-label>آدرس</mat-label>
+  <input matInput type="text">
+</mat-form-field>
+<div mat-dialog-actions>
+  <section>
+    <div class="example-button-row">
+      <button (click)="ok()" mat-raised-button>تائید</button>
+      <button (click)="cancel()" mat-raised-button>انصراف</button>
+    </div>
+  </section>
+</div>
+</div>
