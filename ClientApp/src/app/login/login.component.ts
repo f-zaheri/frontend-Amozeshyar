@@ -25,14 +25,14 @@ export class LoginComponent implements OnInit {
     if (this.loginResponse.isAthenticated==true) {
       sessionStorage.setItem('token',this.loginResponse.token);
       sessionStorage.setItem('role',this.loginResponse.role);
-      if (this.loginResponse.role=='Amozeshyar.Database.Intern') {
+      if (this.loginResponse.role=='Intern') {
         this.router.navigate(['/users/interns']);
       }
       else if (this.loginResponse.role=='Professor') {
         this.router.navigate(['/users/professors']);
       }
       else if (this.loginResponse.role=='Manager') {
-        this.router.navigate(['./users/Managers']);
+        this.router.navigate(['/users/managers']);
       }
     }
   }

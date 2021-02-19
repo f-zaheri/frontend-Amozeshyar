@@ -12,7 +12,7 @@ export class InternsGuard implements CanLoad {
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (sessionStorage.getItem('role')=='Amozeshyar.Database.Intern') {
+    if (sessionStorage.getItem('role')=='Intern') {
       return true;
     }
     this.router.navigate(['/login']);

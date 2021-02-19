@@ -2,24 +2,24 @@
     <mat-card>
         <mat-card-title class="title">ثبت نام</mat-card-title>
         <mat-form-field class="right" appearance="fill">
-            <mat-label>نام</mat-label>
-            <input matInput [(ngModel)]="registerRequest.firstname" >
+            <mat-label for="firstname" >نام</mat-label>
+            <input matInput id="firstname" name="firstname" [(ngModel)]="registerRequest.firstname">
           </mat-form-field>
           <mat-form-field class="right" appearance="fill">
-            <mat-label>نام خانوادگی</mat-label>
-            <input matInput [(ngModel)]="registerRequest.lastname" >
+            <mat-label for="lastname">نام خانوادگی</mat-label>
+            <input matInput id="lastname" name="lastname" [(ngModel)]="registerRequest.lastname" >
           </mat-form-field>
         <mat-form-field class="right" appearance="fill">
-            <mat-label>شماره تلفن همراه</mat-label>
-            <input matInput [(ngModel)]="registerRequest.mobile" >
+            <mat-label for="mobile">شماره تلفن همراه</mat-label>
+            <input matInput id="mobile" name="mobile" [(ngModel)]="registerRequest.mobile" >
           </mat-form-field>
           <mat-form-field class="right" appearance="fill">
-            <mat-label>کلمه عبور</mat-label>
-            <input type="password" matInput [(ngModel)]="registerRequest.password">
+            <mat-label for="password">کلمه عبور</mat-label>
+            <input type="password" matInput id="password" name="password" [(ngModel)]="registerRequest.password">
           </mat-form-field>
           <mat-form-field class="right" appearance="fill">
-            <mat-label>تکرار کلمه عبور</mat-label>
-            <input type="password" matInput [(ngModel)]="confirmPassword">
+            <mat-label for="confirmPassword">تکرار کلمه عبور</mat-label>
+            <input type="password" matInput id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword">
           </mat-form-field>
           <section>
             <div class="example-button-row">
@@ -28,7 +28,7 @@
             </div>
           </section>
         </mat-card>
-        <div *ngIf="registerResponse && registerResponse.Message!=''">{{registerResponse.Message}}</div>
+        <div *ngIf="registerResponse && registerResponse.message!=''">{{registerResponse.message}}</div>
 </div>
 
 

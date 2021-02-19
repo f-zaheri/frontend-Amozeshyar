@@ -25,6 +25,7 @@ namespace Amozeshyar.Controllers
         {
             this._db = db;
         }
+        [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
             if (_db.Managers.Count()==0)
@@ -83,7 +84,7 @@ namespace Amozeshyar.Controllers
                 Subject = new ClaimsIdentity(new[]
                 {
                      new Claim("Mobile", user.Mobile.ToString()),
-                     new Claim("Role", user.ToString()),
+                     new Claim("Role", user.Role)
                      }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -94,7 +95,7 @@ namespace Amozeshyar.Controllers
                 IsAthenticated=true,
                 Message="ورود موفقیت آمیز",
                 Token=tokenHandler.WriteToken(token),
-                Role=user.ToString()
+                Role=user.Role
                 });
             }
             return Ok(new LoginResponse

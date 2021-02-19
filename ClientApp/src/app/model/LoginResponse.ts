@@ -1,6 +1,6 @@
 export class LoginResponse
 {
-  isAthenticated:boolean;
+    isAthenticated:boolean;
     message:string;
     token:string;
     role:string;

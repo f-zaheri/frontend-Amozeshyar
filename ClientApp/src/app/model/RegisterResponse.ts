@@ -1,5 +1,5 @@
 export class RegisterResponse
 {
-    IsSuccess:boolean;
-    Message:string;
+    isSuccess:boolean;
+    message:string;
 }
