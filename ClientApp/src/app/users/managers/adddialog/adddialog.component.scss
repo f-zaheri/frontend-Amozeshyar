@@ -1,14 +1,14 @@
 .d1{
-  width: 300px;
-  text-align: right;
+  width: 500px;
+  direction: rtl;
 }
 .right{
   text-align: right;
-  min-width: 100%;
+  min-width: 45%;
+  padding: 10px;
 }
 button
 {
-  margin: 10px;
   background-color: rgb(141, 81, 253);
   min-width: 80px;
   color: white;
@@ -16,4 +16,13 @@ button
   padding: 5px;
   border-radius: 4px;
 }
-
+input{
+  display: inline-block;
+}
+.b1{
+  margin-right: 160px;
+}
+span{
+  margin-right: 160px;
+  color: blueviolet;
+}

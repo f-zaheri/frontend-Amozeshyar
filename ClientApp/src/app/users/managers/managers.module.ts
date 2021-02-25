@@ -6,6 +6,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 import { ManagersRoutingModule } from './managers-routing.module';
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     MatMenuModule,
     MatDialogModule,
     FormsModule,
-    MatTableModule
+    MatTableModule,
+    MatToolbarModule
   ]
 })
 export class ManagersModule { }

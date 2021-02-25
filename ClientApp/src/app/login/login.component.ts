@@ -28,10 +28,10 @@ export class LoginComponent implements OnInit {
       if (this.loginResponse.role=='Intern') {
         this.router.navigate(['/users/interns']);
       }
-      else if (this.loginResponse.role=='Professor') {
+      if (this.loginResponse.role=='Professor') {
         this.router.navigate(['/users/professors']);
       }
-      else if (this.loginResponse.role=='Manager') {
+      if (this.loginResponse.role=='Manager') {
         this.router.navigate(['/users/managers']);
       }
     }

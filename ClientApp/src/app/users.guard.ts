@@ -16,5 +16,6 @@ export class UsersGuard implements CanLoad {
       this.router.navigate(['/login']);
       return false;
     }
+    return true;
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UsersBackendService } from '../../users-backend.service';
 
@@ -10,20 +11,22 @@ import { UsersBackendService } from '../../users-backend.service';
 })
 export class AdddialogComponent implements OnInit {
 current: any;
-action:string;
+action:string='';
 data:any[];
 
-  constructor(private backend:UsersBackendService) { }
+  constructor(private backend:UsersBackendService,public dialod:MatDialog,public dialogRef: MatDialogRef<AdddialogComponent>) { }
 
   ngOnInit(): void {
-    this.loadData();
+    this.current={};
   }
-  async ok(){
+  async ok(action){
     console.log(this.current);
-    switch (this.action) {
+    this.action=action;
+    switch (action) {
       case 'create':
         try {
-          await this.backend.post('/api/professors',this.current);
+          await this.backend.post('/api/Professors',this.current);
+          this.dialogRef.close();
         }
         catch {
         }
@@ -37,6 +40,5 @@ data:any[];
   async loadData(){
     this.data=await this.backend.get('/api/Professors') as any[];
   }
-  cancel(){
-  }
+  
 }
